@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('./editor.scss');
+
+html {
+	@apply text-text bg-bg h-full;
+}
+
+body,
+#root {
+	@apply h-full;
+}

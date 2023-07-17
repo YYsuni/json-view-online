@@ -1,0 +1,49 @@
+{
+	"name": "json-view-online",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview",
+		"prepare": "husky install",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@headlessui/react": "^1.7.15",
+		"clsx": "^2.0.0",
+		"monaco-editor": "^0.40.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react18-json-view": "0.0.9-canary.1",
+		"sonner": "^0.6.2",
+		"ts-debounce": "^4.0.0",
+		"zustand": "^4.3.9"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.14",
+		"@types/react-dom": "^18.2.6",
+		"@typescript-eslint/eslint-plugin": "^5.61.0",
+		"@typescript-eslint/parser": "^5.61.0",
+		"@vitejs/plugin-react-swc": "^3.3.2",
+		"autoprefixer": "^10.4.14",
+		"eslint": "^8.44.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.1",
+		"husky": "^8.0.0",
+		"lint-staged": "^13.2.3",
+		"postcss": "^8.4.26",
+		"prettier": "^3.0.0",
+		"prettier-plugin-tailwindcss": "^0.4.1",
+		"sass": "^1.63.6",
+		"tailwindcss": "^3.3.3",
+		"typescript": "^5.0.2",
+		"vite": "^4.4.0",
+		"vite-tsconfig-paths": "^4.2.0"
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	}
+}
