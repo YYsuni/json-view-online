@@ -28,19 +28,16 @@ export default function Editor() {
 	const monacoEl = useRef(null)
 	const { setData } = useData()
 
-	const value2Data = useCallback(
-		(value: string) => {
-			try {
-				// eslint-disable-next-line @typescript-eslint/no-implied-eval
-				const dataFunc = new Function(value)
+	const value2Data = useCallback((value: string) => {
+		try {
+			// eslint-disable-next-line @typescript-eslint/no-implied-eval
+			const dataFunc = new Function(value)
 
-				setData(dataFunc())
-			} catch (e) {
-				console.warn('[eval error]', e)
-			}
-		},
-		[setData]
-	)
+			setData(dataFunc())
+		} catch (e) {
+			console.warn('[eval error]', e)
+		}
+	}, [])
 
 	useEffect(() => {
 		if (monacoEl) {
@@ -69,13 +66,12 @@ export default function Editor() {
 		}
 
 		return () => editor?.dispose()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [monacoEl.current])
 
 	useEffect(() => {
 		if (editor) {
 			const handler = (event: KeyboardEvent) => {
-				if (event.ctrlKey == true && event.key === 's') {
+				if ((event.ctrlKey || event.metaKey) && event.key === 's') {
 					event.preventDefault()
 					setStorage(keyOfData, editor?.getValue() || '')
 					toast.success('Saved to local storage!')
