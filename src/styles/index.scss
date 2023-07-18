@@ -12,3 +12,10 @@ body,
 #root {
 	@apply h-full;
 }
+
+* {
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}

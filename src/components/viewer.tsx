@@ -6,7 +6,7 @@ export default function Viewer() {
 	const { data } = useData()
 
 	return (
-		<div className='p-[50px] w-[45%] text-sm'>
+		<div className='p-[50px] w-[45%] text-sm overflow-auto'>
 			<JsonView src={data} />
 		</div>
 	)
