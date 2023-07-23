@@ -71,7 +71,7 @@ export default function Editor() {
 	useEffect(() => {
 		if (editor) {
 			const handler = (event: KeyboardEvent) => {
-				if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+				if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
 					event.preventDefault()
 					setStorage(keyOfData, editor?.getValue() || '')
 					toast.success('Saved to local storage!')
