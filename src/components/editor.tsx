@@ -3,6 +3,9 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 import { useData } from '@/hooks/useData'
 import { getStorage, setStorage } from '@/lib/storage'
 import { toast } from 'sonner'
+import { stringify } from 'react18-json-view'
+
+console.log('[stringify]', stringify)
 
 const example = `return {
 	string: 'string',
@@ -32,7 +35,7 @@ export default function Editor() {
 		if (!editor || !editorData) return
 
 		try {
-			editor.setValue(`return ${JSON.stringify(editorData, null, '\t')}`)
+			editor.setValue(`return ${stringify(editorData, '\t')}`)
 		} catch (e) {
 			console.warn(e)
 		}

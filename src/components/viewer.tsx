@@ -7,13 +7,7 @@ export default function Viewer() {
 
 	return (
 		<div className='p-[50px] w-[45%] text-sm overflow-auto'>
-			<JsonView
-				src={data}
-				editable
-				onAdd={({ src }) => setEditorData({ ...src })}
-				onDelete={({ src }) => setEditorData({ ...src })}
-				onEdit={({ src }) => setEditorData({ ...src })}
-			/>
+			<JsonView src={data} editable onChange={({ src }) => setEditorData({ ...src })} />
 		</div>
 	)
 }

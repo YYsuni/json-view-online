@@ -21,8 +21,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react18-json-view:
-    specifier: 0.2.0-canary.2
-    version: 0.2.0-canary.2(react@18.2.0)
+    specifier: 0.2.0-canary.4
+    version: 0.2.0-canary.4(react@18.2.0)
   sonner:
     specifier: ^0.6.2
     version: 0.6.2(react-dom@18.2.0)(react@18.2.0)
@@ -1962,8 +1962,8 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react18-json-view@0.2.0-canary.2(react@18.2.0):
-    resolution: {integrity: sha512-BRMPoXDhQbRofu8dYe26AXUA5EuySqNGV6vqCwduE442QoqrabJDq8Jed/4YSXJ5fNgLU4H8agGaexPqWxavNQ==}
+  /react18-json-view@0.2.0-canary.4(react@18.2.0):
+    resolution: {integrity: sha512-xMaD6004N73Vo0MR2zx2UNxd9jPlogUQD7jXHvHm51xzWvcUToTVOlSONh/Q+NgbEGPX1Oe1SIMuQj6kTwHXFA==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
