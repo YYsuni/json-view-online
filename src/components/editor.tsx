@@ -26,7 +26,17 @@ const initialData = getStorage(keyOfData) || example
 export default function Editor() {
 	const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor | null>(null)
 	const monacoEl = useRef(null)
-	const { setData } = useData()
+	const { setData, editorData } = useData()
+
+	useEffect(() => {
+		if (!editor || !editorData) return
+
+		try {
+			editor.setValue(`return ${JSON.stringify(editorData, null, '\t')}`)
+		} catch (e) {
+			console.warn(e)
+		}
+	}, [editorData, editor])
 
 	const value2Data = useCallback((value: string) => {
 		try {
@@ -56,6 +66,7 @@ export default function Editor() {
 				})
 				value2Data(initialData)
 				_editor.getModel()?.onDidChangeContent(event => {
+					if (event.changes[0].text.startsWith('return ')) return
 					value2Data(_editor.getValue())
 				})
 

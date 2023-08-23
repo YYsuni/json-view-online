@@ -1,7 +1,13 @@
 import { create } from 'zustand'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useData = create<{ data: any; setData: (data: any) => void }>(set => ({
+export const useData = create<{
+	data: any
+	setData: (data: any) => void
+	editorData: any
+	setEditorData: (data: any) => void
+}>(set => ({
 	data: '',
-	setData: (data: boolean) => set({ data })
+	setData: (data: any) => set(state => ({ ...state, data })),
+	editorData: '',
+	setEditorData: (data: any) => set(state => ({ ...state, editorData: data }))
 }))

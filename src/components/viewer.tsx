@@ -3,11 +3,17 @@ import JsonView from 'react18-json-view'
 import 'react18-json-view/src/style.css'
 
 export default function Viewer() {
-	const { data } = useData()
+	const { data, setEditorData } = useData()
 
 	return (
 		<div className='p-[50px] w-[45%] text-sm overflow-auto'>
-			<JsonView src={data} />
+			<JsonView
+				src={data}
+				editable
+				onAdd={({ src }) => setEditorData({ ...src })}
+				onDelete={({ src }) => setEditorData({ ...src })}
+				onEdit={({ src }) => setEditorData({ ...src })}
+			/>
 		</div>
 	)
 }

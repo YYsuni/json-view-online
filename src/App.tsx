@@ -22,6 +22,10 @@ function App() {
 			<Background>
 				<div className='bg-white rounded-[50px] h-full flex overflow-hidden'>
 					<Editor />
+					<div className='relative whitespace-nowrap flex justify-center font-mono italic text-black/20 text-sm'>
+						<span className='absolute top-2'>{`src =>`}</span>
+						<span className='absolute bottom-2'>{`<= JSON.stringify`}</span>
+					</div>
 					<Viewer />
 				</div>
 			</Background>
