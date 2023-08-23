@@ -24,7 +24,7 @@ function App() {
 					<Editor />
 					<div className='relative whitespace-nowrap flex justify-center font-mono italic text-black/20 text-sm'>
 						<span className='absolute top-2'>{`src =>`}</span>
-						<span className='absolute bottom-2'>{`<= JSON.stringify`}</span>
+						<span className='absolute bottom-2'>{`<= internal stringify`}</span>
 					</div>
 					<Viewer />
 				</div>
