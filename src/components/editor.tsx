@@ -5,8 +5,6 @@ import { getStorage, setStorage } from '@/lib/storage'
 import { toast } from 'sonner'
 import { stringify } from 'react18-json-view'
 
-console.log('[stringify]', stringify)
-
 const example = `return {
 	string: 'string',
 	longString: 'long string long string long string long string long string long string',
