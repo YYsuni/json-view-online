@@ -4,6 +4,7 @@ import { useData } from '@/hooks/useData'
 import { getStorage, setStorage } from '@/lib/storage'
 import { toast } from 'sonner'
 import { stringify } from 'react18-json-view'
+import { useTheme } from '@/hooks/useTheme'
 
 const example = `return {
 	string: 'string',
@@ -63,8 +64,10 @@ export default function Editor() {
 						vertical: 'hidden'
 					},
 					tabSize: 2,
-					scrollBeyondLastLine: false
+					scrollBeyondLastLine: false,
+					theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'vs-dark' : 'default'
 				})
+
 				value2Data(initialData)
 				_editor.getModel()?.onDidChangeContent(event => {
 					if (event.changes[0].text.startsWith('return ')) return
@@ -96,8 +99,36 @@ export default function Editor() {
 		}
 	}, [editor])
 
+	const { theme } = useTheme()
+
+	useEffect(() => {
+		if (theme === 'dark') {
+			monaco.editor.setTheme('vs-dark')
+		} else if (theme === 'light') {
+			monaco.editor.setTheme('default')
+		} else {
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				monaco.editor.setTheme('vs-dark')
+			} else {
+				monaco.editor.setTheme('default')
+			}
+
+			const listener = (event: MediaQueryListEvent) => {
+				if (event.matches) {
+					monaco.editor.setTheme('vs-dark')
+				} else {
+					monaco.editor.setTheme('default')
+				}
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', listener)
+
+			return window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', listener)
+		}
+	}, [theme, editor])
+
 	return (
-		<div className='w-[55%] p-[50px] bg-theme-#2 json-view-editor'>
+		<div className='w-[55%] p-[50px] bg-theme-#2 json-view-editor dark:bg-[#1CB3E2]/5'>
 			<div ref={monacoEl} className='h-full' />
 		</div>
 	)

@@ -5,12 +5,12 @@
 @import url('./editor.scss');
 
 html {
-	@apply text-text bg-bg h-full;
+	@apply h-full;
 }
 
 body,
 #root {
-	@apply h-full;
+	@apply text-text bg-bg h-full dark:bg-[#BFC9D2];
 }
 
 * {
