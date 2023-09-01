@@ -83,7 +83,7 @@ function App() {
 								value={objectSize}
 								type='number'
 								style={{ width: 160 }}
-								placeholder='20'
+								placeholder='99'
 								onInput={event => {
 									const target = event.target as HTMLInputElement
 
