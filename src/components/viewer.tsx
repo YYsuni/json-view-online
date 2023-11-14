@@ -12,7 +12,7 @@ export default function Viewer(props: {
 
 	return (
 		<div className='p-[50px] w-[45%] text-sm overflow-auto'>
-			<JsonView src={data} editable onChange={({ src }) => setEditorData({ ...src })} {...props} />
+			<JsonView src={data} editable matchesURL onChange={({ src }) => setEditorData({ ...src })} {...props} />
 		</div>
 	)
 }

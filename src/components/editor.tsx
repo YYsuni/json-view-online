@@ -19,7 +19,8 @@ const example = `return {
 		k2: '123',
 		k3: false
 	},
-	arr: ['string', 123456, false, null]
+	arr: ['string', 123456, false, null],
+	link: 'https://github.com/'
 }`
 
 const keyOfData = 'local'
